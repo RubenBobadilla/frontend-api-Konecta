@@ -1,0 +1,26 @@
+<!-- Vista Principal-->
+<app-update-role></app-update-role>
+<div>
+    <div>
+        <h2>Gestion de Roles</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th><a class="nav-link active" aria-current="page" routerLink="/role/create"
+                            routerLinkActive="active">Crear Role</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let role of roles; let indice = index">
+                    <th scope="row">{{indice}}</th>
+                    <td>{{role.name}}</td>
+                    <td><button (click)="send(role.id, role.name)" class="btn btn-secondary">Update</button>
+                    </td>
+                    <td><button class="btn btn-danger" (click)="destroy(role.id)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

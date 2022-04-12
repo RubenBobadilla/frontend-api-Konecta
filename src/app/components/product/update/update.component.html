@@ -1,0 +1,56 @@
+<!-- Vista Actualizar Productos-->
+<div>
+    <hr>
+    <div>
+        <h3>Actualizar Producto</h3>
+    </div>
+    <div class="mb-3 row div">
+        <div class="col-sm-3">
+            <input [formControl]="id" type="hidden" class="form-control" id="id">
+        </div>
+    </div>
+    
+    <div class="mb-3 row div">
+        <label for="name" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-3">
+            <input [formControl]="name" type="text" class="form-control" id="name">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="name.touched && name.invalid" [ngClass]="'error'"> Name
+            required!... </label>
+    </div>
+    <div class="mb-3 row div">
+        <label for="reference" class="col-sm-2 col-form-label">Reference</label>
+        <div class="col-sm-3">
+            <input [formControl]="reference" type="text" class="form-control" id="reference">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="reference.touched && reference.invalid" [ngClass]="'error'">
+            reference
+            required!... </label>
+    </div>
+    <div class="mb-3 row">
+        <label for="stock" class="col-sm-2 col-form-label">Stock</label>
+        <div class="col-sm-3">
+            <input [formControl]="stock" type="number" class="form-control" id="stock">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="stock.touched && stock.invalid" [ngClass]="'error'">
+            stock required!...</label>
+    </div>
+    <div class="mb-3 row">
+        <label for="price" class="col-sm-2 col-form-label">Price</label>
+        <div class="col-sm-3">
+            <input [formControl]="price" type="number" class="form-control" id="price">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="price.touched && price.invalid" [ngClass]="'error'">
+            price required!...</label>
+    </div>
+    <div class="mb-3 row">
+        <label for="category_id" class="col-sm-2 col-form-label">Category</label>
+        <div class="col-sm-3">
+            <input [formControl]="category_id" type="number" class="form-control" id="category_id">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="category_id.touched && category_id.invalid" [ngClass]="'error'">
+            category_id required!...</label>
+    </div>
+    <button class="btn btn-success" (click)="update()">Update</button>
+    <hr>
+</div>

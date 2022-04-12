@@ -1,0 +1,9 @@
+.error{
+    color: red;
+    font-size: 11px;
+}
+
+.div{
+    border-color: rgb(230, 22, 22);
+    color: blue;
+} 

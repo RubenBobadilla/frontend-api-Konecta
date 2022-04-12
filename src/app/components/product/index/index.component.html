@@ -1,0 +1,36 @@
+<!-- Vista Principal-->
+<app-update [data]="regProduct" *ngIf="showUpddate"></app-update>
+<div>
+    <div>
+        <h2>Gestion de Productos</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Reference</th>
+                    <th scope="col">Stock</th>
+                    <th><a class="nav-link active" aria-current="page" routerLink="/product/create"
+                            routerLinkActive="active">Crear Producto</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products; let indice = index">
+                    <th scope="row">{{indice}}</th>
+                    <td>{{product.name}}</td>
+                    <td>{{product.reference}}</td>
+                    <td>{{product.stock}}</td>
+                    <!--<td><button class="btn btn-secondary" routerLink="/product/update"
+                        routerLinkActive="active">Update</button></td>-->
+                    <td><button class="btn btn-secondary"
+                            (click)="send(product.id, product.name, product.reference, product.stock, product.price, product.category_id)">Update</button>
+                    </td>
+                    <td><button class="btn btn-danger" (click)="destroy(product.id)">Delete</button></td>
+                    <!--<div>
+                    <app-update [nameCompoIndx]="product.name"></app-update>
+                </div>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

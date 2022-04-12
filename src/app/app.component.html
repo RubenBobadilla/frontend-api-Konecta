@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Bienvenido a la Cafetería K</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse nav justify-content-end" id="navbarNavAltMarkup">
+      <div *ngIf="!log" class="navbar-nav">
+        <a class="nav-link" routerLink="register" routerLinkActive="active">Register</a>
+        <a class="nav-link" routerLink="login" routerLinkActive="active">Login</a>
+      </div>
+    </div>
+
+    <div>
+      <ul class="nav justify-content-center bg-dark">
+        <li *ngIf="(role == 'ROLE_ADMIN' && !res) || (role == 'ROLE_SALE' && !res) || (role == 'ROLE_USER' && !res)" class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="product/index" routerLinkActive="active">Productos</a>
+        </li>
+        <li *ngIf="role == 'ROLE_ADMIN' && !res" class="nav-item">
+          <a class="nav-link active" routerLink="role/index" routerLinkActive="active">Roles</a>
+        </li>
+        <li *ngIf="role == 'ROLE_ADMIN' && !res" class="nav-item">
+          <a class="nav-link active" routerLink="user/index" routerLinkActive="active">Usuarios</a>
+        </li>
+        <li *ngIf="role" class="nav-item">
+          <a class="nav-link active" routerLink="logout" routerLinkActive="active">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div>
+  <router-outlet></router-outlet>
+</div>
+
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Bienvenido a la Cafetería K</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" routerLink="home" routerLinkActive="active">Home</a>
+        <a class="nav-link" routerLink="private" routerLinkActive="active">Private</a>
+        <a class="nav-link" routerLink="admin" routerLinkActive="active">Admin</a>
+        <a class="nav-link" routerLink="login" routerLinkActive="active">Login</a>
+      </div>
+    </div>
+  </div>
+</nav>-->

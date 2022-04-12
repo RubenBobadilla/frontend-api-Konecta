@@ -1,0 +1,18 @@
+<!-- Vista Crear Productos-->
+<div>
+    <hr>
+    <div>
+        <h1>Creación de Roles</h1>
+    </div>
+
+    <div class="mb-3 row div">
+        <label for="name" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-3">
+            <input [formControl]="name" type="text" class="form-control" id="name">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="name.touched && name.invalid" [ngClass]="'error'"> Name
+            required!... </label>
+    </div>
+    <button class="btn btn-primary" (click)="store()">Save</button>
+    <hr>
+</div>

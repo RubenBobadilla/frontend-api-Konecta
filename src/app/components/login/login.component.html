@@ -1,0 +1,37 @@
+<hr>
+<div><h1>Ingrese sus datos de usuario</h1></div>
+
+<div class="mb-3 row div">
+    <label for="email" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+        <input [formControl]="email" type="email" class="form-control" id="email" placeholder="name@example.com">
+    </div>
+    <label class="col-sm-2 col-form-label" *ngIf="email.touched && email.invalid" [ngClass]="'error'"> Email required!... </label>
+</div>
+<div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+        <input [formControl]="password" type="password" class="form-control" id="inputPassword">
+    </div>
+    <label class="col-sm-2 col-form-label" *ngIf="password.touched && password.invalid" [ngClass]="'error'"> Password required min 5
+        character!... </label>
+</div>
+<button class="btn btn-primary" (click)="login()">Ingresar</button>
+
+<hr>
+
+
+<!--<div class="mb-3 row">
+    <label for="email" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+        <input type="email" readonly class="form-control-plaintext" id="email">
+    </div>
+</div>
+<div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword">
+
+    </div>
+    <button class="btn btn primary" (click)="login()">Ingresar</button>
+</div>-->

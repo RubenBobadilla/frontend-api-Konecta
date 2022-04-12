@@ -1,0 +1,130 @@
+<!-- Vista Principal-->
+<div *ngIf="!createdproduct && !updateproduct">
+    <h2>Gestion de Productos</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Reference</th>
+                <th scope="col">Stock</th>
+                <th scope="col" colspan="2"><button class="btn btn-primary" (click)="changeToCreate()">Crear
+                        Producto</button></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products; let indice = index">
+                <th scope="row">{{indice}}</th>
+                <td>{{product.name}}</td>
+                <td>{{product.reference}}</td>
+                <td>{{product.stock}}</td>
+                <td><button class="btn btn-secondary" (click)="show(product.id)">Update</button></td>
+                <td><button class="btn btn-danger" (click)="destroy(product.id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Vista Crear Productos-->
+<div *ngIf="createdproduct">
+    <hr>
+    <div>
+        <h1>Creación de Productos</h1>
+    </div>
+
+    <div class="mb-3 row div">
+        <label for="name" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input [formControl]="name" type="text" class="form-control" id="name">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="name.touched && name.invalid" [ngClass]="'error'"> Name
+            required!... </label>
+    </div>
+    <div class="mb-3 row div">
+        <label for="reference" class="col-sm-2 col-form-label">Reference</label>
+        <div class="col-sm-10">
+            <input [formControl]="reference" type="text" class="form-control" id="reference">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="reference.touched && reference.invalid" [ngClass]="'error'">
+            reference
+            required!... </label>
+    </div>
+    <div class="mb-3 row">
+        <label for="stock" class="col-sm-2 col-form-label">Stock</label>
+        <div class="col-sm-10">
+            <input [formControl]="stock" type="number" class="form-control" id="stock">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="stock.touched && stock.invalid" [ngClass]="'error'">
+            stock required!...</label>
+    </div>
+    <div class="mb-3 row">
+        <label for="price" class="col-sm-2 col-form-label">Price</label>
+        <div class="col-sm-10">
+            <input [formControl]="price" type="number" class="form-control" id="price">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="price.touched && price.invalid" [ngClass]="'error'">
+            price required!...</label>
+    </div>
+    <div class="mb-3 row">
+        <label for="category_id" class="col-sm-2 col-form-label">Category</label>
+        <div class="col-sm-10">
+            <input [formControl]="category_id" type="number" class="form-control" id="category_id">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="category_id.touched && category_id.invalid" [ngClass]="'error'">
+            category_id required!...</label>
+    </div>
+
+    <button class="btn btn-primary" (click)="store()">Save</button>
+    <hr>
+</div>
+
+<!-- Vista Actualizar Productos-->
+<div *ngIf="updateproduct">
+    <hr>
+    <div>
+        <h1>Actualizar Producto</h1>
+    </div>
+    <div class="mb-3 row div">
+        <label for="name" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input [formControl]="name" type="text" class="form-control" id="name">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="name.touched && name.invalid" [ngClass]="'error'"> Name
+            required!... </label>
+    </div>
+    <div class="mb-3 row div">
+        <label for="reference" class="col-sm-2 col-form-label">Reference</label>
+        <div class="col-sm-10">
+            <input [formControl]="reference" type="text" class="form-control" id="reference">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="reference.touched && reference.invalid" [ngClass]="'error'">
+            reference
+            required!... </label>
+    </div>
+    <div class="mb-3 row">
+        <label for="stock" class="col-sm-2 col-form-label">Stock</label>
+        <div class="col-sm-10">
+            <input [formControl]="stock" type="number" class="form-control" id="stock">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="stock.touched && stock.invalid" [ngClass]="'error'">
+            stock required!...</label>
+    </div>
+    <div class="mb-3 row">
+        <label for="price" class="col-sm-2 col-form-label">Price</label>
+        <div class="col-sm-10">
+            <input [formControl]="price" type="number" class="form-control" id="price">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="price.touched && price.invalid" [ngClass]="'error'">
+            price required!...</label>
+    </div>
+    <div class="mb-3 row">
+        <label for="category_id" class="col-sm-2 col-form-label">Category</label>
+        <div class="col-sm-10">
+            <input [formControl]="category_id" type="number" class="form-control" id="category_id">
+        </div>
+        <label class="col-sm-2 col-form-label" *ngIf="category_id.touched && category_id.invalid" [ngClass]="'error'">
+            category_id required!...</label>
+    </div>
+    <button class="btn btn-success" (click)="update()">Update</button>
+    <hr>
+</div>

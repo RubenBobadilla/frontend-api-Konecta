@@ -1,0 +1,30 @@
+<!-- Vista Principal-->
+<app-update-user></app-update-user>
+<div>
+    <div>
+        <h2>Gestion de Usuarios</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
+                    <th><a class="nav-link active" aria-current="page" routerLink="/user/create"
+                            routerLinkActive="active">Crear Usuario</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users; let indice = index">
+                    <th scope="row">{{indice}}</th>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.role}}</td>
+                    <td><button class="btn btn-secondary" (click)="send(user.id, user.name, user.email, user.role)">Update</button>
+                    </td>
+                    <td><button class="btn btn-danger" (click)="destroy(user.id)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

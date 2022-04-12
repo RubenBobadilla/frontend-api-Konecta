@@ -1,0 +1,27 @@
+<hr>
+<div><h1>Registrese aquí</h1></div>
+<div class="mb-3 row div">
+    <label for="name" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+        <input [formControl]="name" type="text" class="form-control" id="name">
+    </div>
+    <label class="col-sm-2 col-form-label" *ngIf="name.touched && name.invalid" [ngClass]="'error'"> Name required!... </label>
+</div>
+<div class="mb-3 row div">
+    <label for="email" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+        <input [formControl]="email" type="email" class="form-control" id="email" placeholder="name@example.com">
+    </div>
+    <label class="col-sm-2 col-form-label" *ngIf="email.touched && email.invalid" [ngClass]="'error'"> Email required!... </label>
+</div>
+<div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+        <input [formControl]="password" type="password" class="form-control" id="inputPassword">
+    </div>
+    <label class="col-sm-2 col-form-label" *ngIf="password.touched && password.invalid" [ngClass]="'error'"> Password required min 5
+        character!... </label>
+</div>
+<button class="btn btn-primary" (click)="registerIn()">Registrarse</button>
+
+<hr>
